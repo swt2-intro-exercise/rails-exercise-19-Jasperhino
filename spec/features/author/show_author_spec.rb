@@ -13,6 +13,6 @@ describe "Show author page", type: :feature do
     it "should display name and website" do
         visit author_path(@alan)
         expect(page).to have_text(@alan.name)
-        expect(page).to have_text(@alan.website)
+        expect(page).to have_text(@alan.homepage)
     end
 end
