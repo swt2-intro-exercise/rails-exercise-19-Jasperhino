@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "New author page", type: :feature do
+describe "Show author page", type: :feature do
     before(:each) do
         @alan = FactoryBot.create :author
     end
