@@ -32,6 +32,6 @@ describe "New author page", type: :feature do
     page.fill_in 'author[first_name]', with: 'Edsger'
     page.fill_in 'author[homepage]', with: 'http://wikipedia.org/Edsger_W._Dijkstra'
     find('input[type="submit"]').click
-    expect(page).to have_text('Saving Error')
+    expect(page).to have_text('prohibited this author from being saved')
   end
 end
