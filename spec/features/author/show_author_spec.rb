@@ -1,10 +1,17 @@
 require 'rails_helper'
 
 describe "New author page", type: :feature do
+    before(:each) do
+        @alan = FactoryBot.create :author
+    end
+
     it "should render without error" do
         visit author_path(@alan)
         expect(page).to have_text("Show Author")
-        expect(page).to have_text("Alan")
-        expect(page).to have_text("Turing")
+    end
+
+    it "should display name and website" do
+        expect(page).to have_text(@alan.name)
+        expect(page).to have_text(@alan.website)
     end
 end
