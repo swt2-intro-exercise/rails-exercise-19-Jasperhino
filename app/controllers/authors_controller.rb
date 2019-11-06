@@ -5,7 +5,7 @@ class AuthorsController < ApplicationController
     def create
         @author = Author.new(author_params)
         @author.save
-        redirect_to root_path, notice: 'success'
+        redirect_to @author, notice: 'success'
     end
 
     private def author_params
