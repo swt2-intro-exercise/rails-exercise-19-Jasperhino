@@ -7,11 +7,11 @@ describe "Show paper page", type: :feature do
     end
 
   it "should render withour error" do
-    visit show_paper_path(@computing)
+    visit paper_path(@computing)
   end
 
   it "should display authors name" do
-    visit show_paper_path(@computing)
+    visit paper_path(@computing)
 
     expect(page).to have_text(@alan.name)
   end
