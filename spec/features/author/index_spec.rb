@@ -20,4 +20,9 @@ describe "Author index page", type: :feature do
     expect(page).to have_link 'Add author', href: new_author_path
   end
 
+  it "should have edit link" do
+    visit authors_path
+    expect(page).to have_link 'Edit', href: edit_author_path(@alan)
+  end
+
 end 
