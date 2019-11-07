@@ -1,10 +1,14 @@
 require 'rails_helper'
 
-before(:each) do
+
+describe "New author page", type: :feature do
+
+  before(:each) do
     @alan = FactoryBot.create :author
   end
 
-describe "New author page", type: :feature do
+  HOMEPAGE = 'http://wikipedia.de/Edit'
+
   it "should render withour error" do
     visit edit_author_path(@alan)
   end
@@ -14,12 +18,12 @@ describe "New author page", type: :feature do
 
     page.fill_in 'author[first_name]', with: @alan.first_name
     page.fill_in 'author[last_name]', with: @alan.first_name
-    page.fill_in 'author[homepage]', with: 'http://wikipedia.de/Edit'
+    page.fill_in 'author[homepage]', with: HOMEPAGE
 
     find('input[type="submit"]').click
 
     @alan.reload
 
-    expect(@alan.homepage).to eq('http://wikipedia.de/Edit')
+    expect(@alan.homepage).to eq(HOMEPAGE)
   end
 end
